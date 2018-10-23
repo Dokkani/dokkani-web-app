@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
-        {/* <ButtonAppBar /> */}
+        <ButtonAppBar /> 
         <div style={{
           position: 'absolute', 
           left: '50%', 

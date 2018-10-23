@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle'
 
 const styles = {
   root: {
@@ -31,9 +32,11 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            News
+            Dokkani
           </Typography>
-          <Button color="inherit">Login</Button>
+          <IconButton color="inherit" aria-label="Login">
+            <AccountCircle/>
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>

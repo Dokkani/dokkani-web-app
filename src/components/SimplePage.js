@@ -25,7 +25,7 @@ const SimplePage = props => {
     <Grid container spacing={24} justify='center' alignItems="center" direction="column">
       <Typography
         className="title"
-        variant="headline"
+        variant="h5"
         color="secondary" 
       >
         Welcome to Dokkani
@@ -38,7 +38,7 @@ const SimplePage = props => {
       >
         Login
       </Button>
-      <span id="signup" className={classes.custom} onClick={() => {console.log('Hellow World')}}>Sign Up</span>
+      <span id="signup" onClick={() => {console.log('Hellow World')}}>Sign Up</span>
     </Grid>
     
   );
