@@ -5,7 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import './SimplePage.css';
+import './HomePage.css';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -19,7 +20,7 @@ const styles = theme => ({
 });
 
  
-const SimplePage = props => {
+const HomePage = props => {
   const { classes } = props;
   return (
     <Grid container spacing={24} justify='center' alignItems="center" direction="column">
@@ -38,15 +39,15 @@ const SimplePage = props => {
       >
         Login
       </Button>
-      <span id="signup" onClick={() => {console.log('Hellow World')}}>Sign Up</span>
+      <Link id="signup" to="/signup">Sign Up</Link>
     </Grid>
     
   );
 }
 
-SimplePage.propTypes = {
+HomePage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(SimplePage);
+export default withStyles(styles)(HomePage);
