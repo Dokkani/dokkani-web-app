@@ -34,18 +34,19 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <div className={this.classes.root}>
+      <div>
         <Typography
           variant="h3"
           align="left"
           style={{
-            marginTop: 20
+            marginTop: 20,
+            marginBottom: 20
           }}
           color="inherit"
         >
          Sign Up
         </Typography>
-        <Grid container className="container" spacing={16} alignItems='center' justify='space-evenly' direction="row">
+        <Grid container spacing={8} alignItems='center' justify='space-evenly' direction="row">
           <Grid item xs={6}>
             <Input className="input" placeholder="First Name"></Input>
           </Grid>

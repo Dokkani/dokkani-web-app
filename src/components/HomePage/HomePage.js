@@ -31,14 +31,16 @@ const HomePage = props => {
       >
         Welcome to Dokkani
       </Typography>
-      <Button
-        variant="outlined"
-        size="small"
-        color="primary"
-        className="login"
-      >
-        Login
-      </Button>
+      <Link style={{textDecoration: 'none'}}to="/login">
+        <Button
+          variant="outlined"
+          size="small"
+          color="primary"
+          className="login"
+        >
+          Login
+        </Button>
+      </Link>
       <Link id="signup" to="/signup">Sign Up</Link>
     </Grid>
     
