@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import  ButtonAppBar from '../ButtonAppBar';
 import { FormControl, FormControlLabel, Input } from '@material-ui/core';
+import './SignUpPage.css';
 
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+  }
+})
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
@@ -20,19 +26,23 @@ class SignUpPage extends React.Component {
       latitude: null,
       longitude: null
     };
+    this.classes = props.classes;
   }
 
   render() {
     return (
-      <Grid container spacing={24}>
-        <form>
-          <FormControl>
-            <Input placeholder="First Name"></Input>
-          </FormControl>
-        </form>
-      </Grid>
+      <div className={this.classes.root}>
+        <Grid container className="container" spacing={16} alignItems='center' justify='center' direction="row">
+          <Grid item xs={6}>
+            <Input className="input" placeholder="First Name"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Last Name"></Input>
+          </Grid>
+        </Grid>
+      </div>
     );
   }
 }
 
-export default SignUpPage;
+export default withStyles(styles)(SignUpPage);
