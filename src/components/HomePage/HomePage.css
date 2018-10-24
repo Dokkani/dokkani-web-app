@@ -1,0 +1,17 @@
+.title {
+    font-size: 3vw!important;
+}
+.login {
+    width: 2vw!important;
+    margin-top: 1rem;
+}
+#signup:hover {
+    cursor: pointer;
+}
+#signup {
+    color:#3d5afe;
+    font-size: .8rem;
+    margin-top: .5rem;
+    text-decoration: underline;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
