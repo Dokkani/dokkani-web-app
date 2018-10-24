@@ -13,7 +13,8 @@ const styles = theme => ({
   header: {
     color: theme.palette.text.secondary
   }
-})
+});
+
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
@@ -34,51 +35,54 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <Typography
-          variant="h3"
-          align="left"
-          style={{
-            marginTop: 20,
-            marginBottom: 20
-          }}
-          color="inherit"
-        >
-         Sign Up
-        </Typography>
-        <Grid container spacing={8} alignItems='center' justify='space-evenly' direction="row">
-          <Grid item xs={6}>
-            <Input className="input" placeholder="First Name"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Last Name"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Email"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Username"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Password"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Address"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Input className="input" placeholder="Phone"></Input>
-          </Grid>
-          <Grid item xs={6}>
-            <Button
-              variant="outlined"
-              size="medium"
-              color="primary"
-            >
-              Submit
-            </Button>
-          </Grid>
+      <Grid className={[this.classes.root, "container"].join(' ') } container spacing={8} alignItems='flex-start' justify='center' direction="column">
+        <Grid item xs={12}>
+          <Typography
+            variant="h3"
+            align="left"
+            style={{
+              marginTop: 20,
+              marginBottom: 20,
+              
+            }}
+            color="inherit"
+            className="sign-up-heading"
+          >
+            Sign Up
+          </Typography>
         </Grid>
-      </div>
+        <Grid  item xs={12}>
+          <Input className="input" placeholder="First Name"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Last Name"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Email"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Username"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Password"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Address"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Input className="input" placeholder="Phone"></Input>
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            variant="outlined"
+            size="medium"
+            color="primary"
+            className="sign-up-submit"
+          >
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
     );
   }
 }
