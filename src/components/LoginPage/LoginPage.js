@@ -9,10 +9,10 @@ class LoginPage extends React.Component {
     return (
       <Grid container spacing={24} justify='center' alignItems="center" direction="column">
         <Grid item xs={12}>
-          <Input className="input" placeholder="Email"></Input>
+          <Input className="login-input" placeholder="Email"></Input>
         </Grid>
         <Grid item xs={12}>
-          <Input className="input" placeholder="Password"></Input>
+          <Input className="login-input" placeholder="Password"></Input>
         </Grid>
         <Grid item xs={12}>
         <Button
