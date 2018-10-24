@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import  ButtonAppBar from '../ButtonAppBar';
-import { FormControl, FormControlLabel, Input } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import { FormControl, FormControlLabel, Input, Button} from '@material-ui/core';
 import './SignUpPage.css';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  header: {
+    color: theme.palette.text.secondary
   }
 })
 class SignUpPage extends React.Component {
@@ -32,12 +35,46 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <div className={this.classes.root}>
-        <Grid container className="container" spacing={16} alignItems='center' justify='center' direction="row">
+        <Typography
+          variant="h3"
+          align="left"
+          style={{
+            marginTop: 20
+          }}
+          color="inherit"
+        >
+         Sign Up
+        </Typography>
+        <Grid container className="container" spacing={16} alignItems='center' justify='space-evenly' direction="row">
           <Grid item xs={6}>
             <Input className="input" placeholder="First Name"></Input>
           </Grid>
           <Grid item xs={6}>
             <Input className="input" placeholder="Last Name"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Email"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Username"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Password"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Address"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Input className="input" placeholder="Phone"></Input>
+          </Grid>
+          <Grid item xs={6}>
+            <Button
+              variant="outlined"
+              size="medium"
+              color="primary"
+            >
+              Submit
+            </Button>
           </Grid>
         </Grid>
       </div>

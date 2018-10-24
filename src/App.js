@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ButtonAppBar from './components/ButtonAppBar';
+import ButtonAppBar from './components/ButtonAppBar/ButtonAppBar';
 import HomePage from './components/HomePage/';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './themes/theme';
