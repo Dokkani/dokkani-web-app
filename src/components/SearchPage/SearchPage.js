@@ -10,20 +10,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import './SearchPage.css';
 
 const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexGrow: 1
-  },
-  // formControl: {
-  //   minWidth: 200
-  // },
   button: {
-    marginTop: 20
-  },
-  // textField: {
-  //   minWidth: 200
-  // }
-
+    marginTop: 20,
+    marginLeft: 50
+  }
 });
 
 class SearchPage extends React.Component {
@@ -33,34 +23,32 @@ class SearchPage extends React.Component {
   }
   render() {
     return (
-      // <form className={this.classes.root}>
-        <Grid spacing={24} container direction="column" alignItems="flex-start" justify="flex-start">
-          <TextField
-            placeholder="Product"
-            className="text-field"
-          />
-          <FormControl 
-            className="form-control"
-          >
-            <InputLabel>Category</InputLabel>
-            <Select>
-              <MenuItem value=""></MenuItem>
-              <MenuItem value="clothes">Clothes</MenuItem>
-              <MenuItem value="electronics">Electronics</MenuItem>
-              <MenuItem value="household">Household</MenuItem>
-              <MenuItem value="tools">Tools</MenuItem>
-            </Select>
-          </FormControl>
-          <Button
-            className={this.classes.button}
-            variant="outlined"
-            size="medium"
-            color="primary"
-          >
-            Search
-          </Button>
-        </Grid>
-      // </form>
+      <Grid spacing={24} container direction="column" alignItems="flex-start" justify="center">
+        <TextField
+          placeholder="Product"
+          className="text-field"
+        />
+        <FormControl 
+          className="form-control"
+        >
+          <InputLabel>Category</InputLabel>
+          <Select>
+            <MenuItem value=""></MenuItem>
+            <MenuItem value="clothes">Clothes</MenuItem>
+            <MenuItem value="electronics">Electronics</MenuItem>
+            <MenuItem value="household">Household</MenuItem>
+            <MenuItem value="tools">Tools</MenuItem>
+          </Select>
+        </FormControl>
+        <Button
+          className={this.classes.button}
+          variant="outlined"
+          size="medium"
+          color="primary"
+        >
+          Search
+        </Button>
+      </Grid>
     );
   }
 }
