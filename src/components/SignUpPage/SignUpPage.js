@@ -6,15 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import { FormControl, FormControlLabel, Input, Button} from '@material-ui/core';
 import './SignUpPage.css';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  header: {
-    color: theme.palette.text.secondary
-  }
-});
-
+// const styles = theme => ({
+//   loginInput: {
+//     minWidth: 500
+//   }
+// })
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
@@ -30,12 +26,12 @@ class SignUpPage extends React.Component {
       latitude: null,
       longitude: null
     };
-    this.classes = props.classes;
+    // this.classes = props.classes;
   }
 
   render() {
     return (
-      <Grid className={[this.classes.root, "container"].join(' ') } container spacing={8} alignItems='flex-start' justify='center' direction="column">
+      <Grid  container spacing={24} alignItems='center' justify='space-around' direction="column">
         <Grid item xs={12}>
           <Typography
             variant="h3"
@@ -54,25 +50,25 @@ class SignUpPage extends React.Component {
         <Grid  item xs={12}>
           <Input className="input" placeholder="First Name"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Last Name"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Email"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Username"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Password"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Address"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Input className="input" placeholder="Phone"></Input>
         </Grid>
-        <Grid item xs={12}>
+        <Grid  item xs={12}>
           <Button
             variant="outlined"
             size="medium"
@@ -87,4 +83,4 @@ class SignUpPage extends React.Component {
   }
 }
 
-export default withStyles(styles)(SignUpPage);
+export default SignUpPage;

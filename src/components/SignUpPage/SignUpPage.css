@@ -1,8 +1,8 @@
-.container {
-    /* margin-top: 3rem!important; */
-    margin-left: 33.5rem!important
-}
 .input {
     width:250%;
+    margin-left: -60%;
     
+}
+.sign-up-submit {
+    margin-left: 60%;
 }
