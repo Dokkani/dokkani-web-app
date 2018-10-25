@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { FormControl, FormControlLabel, Input, Button} from '@material-ui/core';
-// import './SignUpPage.css';
+import './SignUpPage.css';
 
 const styles = theme => ({
   loginInput: {
@@ -31,7 +31,7 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <Grid  container spacing={24} alignItems='center' justify='center' direction="column">
+      <Grid  container spacing={24} alignItems='center' justify='space-around' direction="column">
         <Grid item xs={12}>
           <Typography
             variant="h3"
