@@ -1,3 +1,6 @@
 .text-field, .form-control {
     /* width: 200%; */
 }
+.form-control {
+    width: 100%;
+}

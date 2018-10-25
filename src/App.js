@@ -37,7 +37,7 @@ const App = () => (
         <Route exact path="/search" render={props => (
           <div style={{
             position: 'absolute', 
-            left: '45%', 
+            left: '50%', 
             top: '50%',
             transform: 'translate(-50%, -50%)'
           }}>
