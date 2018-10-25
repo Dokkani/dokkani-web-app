@@ -7,21 +7,22 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem'
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
+import './SearchPage.css';
 
 const styles = theme => ({
   root: {
     display: 'flex',
     flexGrow: 1
   },
-  formControl: {
-    minWidth: 200,
-  },
+  // formControl: {
+  //   minWidth: 200
+  // },
   button: {
     marginTop: 20
   },
-  textField: {
-    minWidth: 200
-  }
+  // textField: {
+  //   minWidth: 200
+  // }
 
 });
 
@@ -32,14 +33,14 @@ class SearchPage extends React.Component {
   }
   render() {
     return (
-      <form className={this.classes.root}>
-        <Grid spacing={24} container direction="column" alignItems="center" justify="center">
+      // <form className={this.classes.root}>
+        <Grid spacing={24} container direction="column" alignItems="flex-start" justify="flex-start">
           <TextField
             placeholder="Product"
-            className={this.classes.textField}
+            className="text-field"
           />
           <FormControl 
-            className={this.classes.formControl}
+            className="form-control"
           >
             <InputLabel>Category</InputLabel>
             <Select>
@@ -59,7 +60,7 @@ class SearchPage extends React.Component {
             Search
           </Button>
         </Grid>
-      </form>
+      // </form>
     );
   }
 }

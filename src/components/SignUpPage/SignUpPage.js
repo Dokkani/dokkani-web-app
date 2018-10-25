@@ -6,11 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import { FormControl, FormControlLabel, Input, Button} from '@material-ui/core';
 import './SignUpPage.css';
 
-const styles = theme => ({
-  loginInput: {
-    minWidth: 500
-  }
-})
+// const styles = theme => ({
+//   loginInput: {
+//     minWidth: 500
+//   }
+// })
 class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class SignUpPage extends React.Component {
       latitude: null,
       longitude: null
     };
-    this.classes = props.classes;
+    // this.classes = props.classes;
   }
 
   render() {
@@ -83,4 +83,4 @@ class SignUpPage extends React.Component {
   }
 }
 
-export default withStyles(styles)(SignUpPage);
+export default SignUpPage;
