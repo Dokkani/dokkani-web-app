@@ -28,9 +28,7 @@ class FileUpload extends React.Component {
   }
   render() {
     return (
-      <form
-        onSubmit={this.handleSubmit}
-      >
+      <form onSubmit={this.handleSubmit}>
         <Input type="file" placeholder="file" onChange={this.handleFileChange}></Input>
         <Button variant="raised" type="submit">Submit</Button>
       </form>

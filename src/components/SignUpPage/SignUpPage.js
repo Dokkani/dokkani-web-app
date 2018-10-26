@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { FormControl, FormControlLabel, Input, Button} from '@material-ui/core';
 import './SignUpPage.css';
+import axios from 'axios';
 
 // const styles = theme => ({
 //   loginInput: {
@@ -27,8 +28,26 @@ class SignUpPage extends React.Component {
       longitude: null
     };
     // this.classes = props.classes;
+    this.onInputChange = this.onInputChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
+  onInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
   }
 
+  submitForm(event) {
+    event.preventDefault();
+    console.log(this.state);
+    axios.post('http://localhost:5000/api/users/signup', this.state)
+      .then(result => {
+        console.log(result)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <Grid  container spacing={24} alignItems='center' justify='space-around' direction="column">
@@ -48,25 +67,25 @@ class SignUpPage extends React.Component {
           </Typography>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="First Name"></Input>
+          <Input onChange={this.onInputChange} name="first_name" className="input" placeholder="First Name"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Last Name"></Input>
+          <Input onChange={this.onInputChange} name="last_name"className="input" placeholder="Last Name"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Email"></Input>
+          <Input onChange={this.onInputChange} name="email" className="input" placeholder="Email"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Username"></Input>
+          <Input onChange={this.onInputChange} name="user_name" className="input" placeholder="Username"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Password"></Input>
+          <Input onChange={this.onInputChange} name="password" className="input" placeholder="Password"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Address"></Input>
+          <Input onChange={this.onInputChange} name="address" className="input" placeholder="Address"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input className="input" placeholder="Phone"></Input>
+          <Input onChange={this.onInputChange} name="phone" className="input" placeholder="Phone"></Input>
         </Grid>
         <Grid  item xs={12}>
           <Button
@@ -74,6 +93,7 @@ class SignUpPage extends React.Component {
             size="medium"
             color="primary"
             className="sign-up-submit"
+            onClick={this.submitForm}
           >
             Submit
           </Button>
