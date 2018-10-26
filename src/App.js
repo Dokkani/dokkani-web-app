@@ -7,12 +7,12 @@ import theme from './themes/theme';
 import SignUpPage from './components/SignUpPage';
 import LoginPage from './components/LoginPage';
 import SearchPage from './components/SearchPage';
+import FileUpload from './components/FileUpload';
 
 const App = () => (
   <Router>
     <MuiThemeProvider theme={theme}>
       <ButtonAppBar/>
-      <div>
         <Route exact path="/" render={props => (
           <div style={{
             position: 'absolute', 
@@ -44,7 +44,7 @@ const App = () => (
             <SearchPage/>
           </div>
         )}/>
-      </div>
+        <Route exact path="/file" component={FileUpload}/>
     </MuiThemeProvider>
   </Router>
 )
