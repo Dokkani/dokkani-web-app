@@ -20,19 +20,33 @@ class SearchPage extends React.Component {
   constructor(props) {
     super(props);
     this.classes = props.classes;
+    this.state = {
+      category: ''
+    }
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
   }
+
+  handleCategoryChange(event) {
+    this.setState({
+      category: event.target.value
+    });
+  }
+
   render() {
     return (
       <Grid spacing={24} container direction="column" alignItems="flex-start" justify="center">
         <TextField
-          placeholder="Product"
+          placeholder="What are you looking for?"
           className="text-field"
         />
         <FormControl 
           className="form-control"
         >
           <InputLabel>Category</InputLabel>
-          <Select>
+          <Select
+            onChange={this.handleCategoryChange}
+            value={this.state.category}
+          >
             <MenuItem value=""></MenuItem>
             <MenuItem value="clothes">Clothes</MenuItem>
             <MenuItem value="electronics">Electronics</MenuItem>
