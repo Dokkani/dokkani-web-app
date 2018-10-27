@@ -16,37 +16,89 @@ class SignUpPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      first_name: null,
-      last_name: null,
-      user_name: null,
-      password: null,
-      email: null,
-      address: null,
-      phone: null,
-      location: null,
-      latitude: null,
-      longitude: null
+      first_name: '',
+      last_name: '',
+      user_name: '',
+      password: '',
+      email: '',
+      address: '',
+      phone: '',
+      location: '',
+      latitude: '',
+      longitude: '',
+      isValid: true,
+      errorMessage: ''
     };
     // this.classes = props.classes;
     this.onInputChange = this.onInputChange.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.validateInput = this.validateInput.bind(this);
   }
   onInputChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
+  
+  validateInput() {
+    for (let propt in this.state) {
+      console.log(propt);
+      if (propt !== 'location' && propt !== 'latitude' && propt !== 'longitude' && propt !== 'errorMessage') {
+        console.log(propt, this.state[propt]);
+        if (!this.state[propt]) {
+          this.setState({
+            isValid: false,
+            errorMessage: 'Please fill out each field.'
+          });
+          return false;
+        }
+      }
+    }
+    this.setState({
+      isValid: true
+    });
+    return true;
+  }
 
   submitForm(event) {
     event.preventDefault();
-    console.log(this.state);
-    axios.post('http://localhost:5000/api/users/signup', this.state)
+    // console.log(this.state);
+    if (this.validateInput()) {
+      axios.post('http://localhost:5000/api/users/signup', this.state)
       .then(result => {
-        console.log(result)
+        console.log(result);
+        this.setState({
+          first_name: '',
+          last_name: '',
+          user_name: '',
+          password: '',
+          email: '',
+          address: '',
+          phone: '',
+          location: '',
+          latitude: '',
+          longitude: '',
+          errorMessage: '',
+          isValid: true
+        });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(error =>  {
+        let errorData = error.response.data;
+        let array = [];
+        console.log(errorData);
+        if (errorData) {
+          for (let propt in errorData) {
+            array.push(propt + ":" + errorData[propt]);
+          }
+          this.setState({
+            errorMessage: array.join(' ')
+          });
+        }
       });
+    }
+    this.setState({
+      isValid: false
+    })
   }
   render() {
     return (
@@ -67,25 +119,25 @@ class SignUpPage extends React.Component {
           </Typography>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="first_name" className="input" placeholder="First Name"></Input>
+          <Input value={this.state.first_name} onChange={this.onInputChange} name="first_name" className="input" placeholder="First Name"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="last_name"className="input" placeholder="Last Name"></Input>
+          <Input value={this.state.last_name} onChange={this.onInputChange} name="last_name"className="input" placeholder="Last Name"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="email" className="input" placeholder="Email"></Input>
+          <Input value={this.state.email} onChange={this.onInputChange} name="email" className="input" placeholder="Email"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="user_name" className="input" placeholder="Username"></Input>
+          <Input value={this.state.user_name} onChange={this.onInputChange} name="user_name" className="input" placeholder="Username"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="password" className="input" placeholder="Password"></Input>
+          <Input value={this.state.password} onChange={this.onInputChange} name="password" className="input" placeholder="Password"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="address" className="input" placeholder="Address"></Input>
+          <Input value={this.state.address} onChange={this.onInputChange} name="address" className="input" placeholder="Address"></Input>
         </Grid>
         <Grid  item xs={12}>
-          <Input onChange={this.onInputChange} name="phone" className="input" placeholder="Phone"></Input>
+          <Input value={this.state.phone} onChange={this.onInputChange} name="phone" className="input" placeholder="Phone"></Input>
         </Grid>
         <Grid  item xs={12}>
           <Button
@@ -98,6 +150,16 @@ class SignUpPage extends React.Component {
             Submit
           </Button>
         </Grid>
+        {!this.state.isValid ? 
+          <Grid
+            className="error-message"
+            item
+            xs={12}
+            style={{color: 'red'}}
+          >
+            {this.state.errorMessage}
+          </Grid> : null
+        }
       </Grid>
     );
   }

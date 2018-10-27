@@ -3,16 +3,48 @@ import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import './LoginPage.css'
+import axios from 'axios';
 
 class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  handleInputChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    axios.post('http://localhost:5000/api/users/login', this.state)
+      .then(result => {
+        console.log(result);
+        this.setState({
+          email: '',
+          password: ''
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+ 
   render() {
     return (
       <Grid container spacing={24} justify='center' alignItems="center" direction="column">
         <Grid item xs={12}>
-          <Input className="login-input" placeholder="Email"></Input>
+          <Input value={this.state.email} onChange={this.handleInputChange} name="email" className="login-input" placeholder="Email"></Input>
         </Grid>
         <Grid item xs={12}>
-          <Input className="login-input" placeholder="Password"></Input>
+          <Input value={this.state.password} onChange={this.handleInputChange} name="password" className="login-input" placeholder="Password"></Input>
         </Grid>
         <Grid item xs={12}>
         <Button
@@ -20,6 +52,7 @@ class LoginPage extends React.Component {
           variant="outlined"
           size="medium"
           color="primary"
+          onClick={this.handleSubmit}
         >
           Submit
         </Button>
