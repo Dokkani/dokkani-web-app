@@ -10,7 +10,8 @@ class LoginPage extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      session: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,17 +25,21 @@ class LoginPage extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('http://localhost:5000/api/users/login', this.state)
+    console.log('click');
+    if (this.state.email && this.state.password) {
+      axios.post('http://localhost:5000/api/users/login', this.state)
       .then(result => {
         console.log(result);
         this.setState({
           email: '',
-          password: ''
-        })
+          password: '',
+          session: result.data.token
+        });
       })
       .catch(error => {
         console.log(error);
       });
+    }
   }
  
   render() {

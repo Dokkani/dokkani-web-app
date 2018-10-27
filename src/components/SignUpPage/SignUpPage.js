@@ -82,6 +82,8 @@ class SignUpPage extends React.Component {
           isValid: true
         });
       })
+      //this might not work
+      //test this code
       .catch(error =>  {
         let errorData = error.response.data;
         let array = [];

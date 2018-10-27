@@ -24,7 +24,7 @@ class FileUpload extends React.Component {
     event.preventDefault();
     const formData = new FormData();
     formData.append('image', this.state.image, this.state.image.name);
-    axios.post('http://localhost:5000/file', formData);
+    axios.post('http://localhost:5000/api/posts/upload', formData);
   }
   render() {
     return (
