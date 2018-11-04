@@ -8,6 +8,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
 import './SearchPage.css';
+import axios from 'axios';
 
 const styles = theme => ({
   button: {
@@ -21,9 +22,12 @@ class SearchPage extends React.Component {
     super(props);
     this.classes = props.classes;
     this.state = {
-      category: ''
+      category: '',
+      productArray: null,
+      didUpdate: false
     }
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
+
   }
 
   handleCategoryChange(event) {
@@ -31,9 +35,25 @@ class SearchPage extends React.Component {
       category: event.target.value
     });
   }
+  
+  componentDidMount() {
+    console.log('axioscall');
+    axios.get('https://murmuring-coast-45891.herokuapp.com/api/posts')
+      .then(results => {
+        console.log(results);
+        this.setState({
+          productArray: results.data 
+        });
+        console.log(this.state)
+      })
+      .catch(error => console.log(error))
+  }
+
 
   render() {
+    const { productArray } = this.state; 
     return (
+      <div>
       <Grid spacing={24} container direction="column" alignItems="flex-start" justify="center">
         <TextField
           placeholder="What are you looking for?"
@@ -63,6 +83,10 @@ class SearchPage extends React.Component {
           Search
         </Button>
       </Grid>
+      {this.state.productArray ? this.state.productArray.map(product =>
+        <div key={product._id}>{product.category}</div>) : null
+      }
+      </div>
     );
   }
 }
